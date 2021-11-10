@@ -50,10 +50,14 @@ func (r *racesRepo) List(filter *racing.ListRacesRequestFilter) ([]*racing.Race,
 	)
 
 
-	/* commented out to change query
+	/* standard query, no filtering
 	query = getRaceQueries()[racesList]
 	 */
+
+	/* query for task 1, filters 'invisible' races
 	query = getVisibleRaceQueries()[racesList]
+	 */
+	query = getRaceQueriesbyTime()[racesList]
 
 	query, args = r.applyFilter(query, filter)
 
