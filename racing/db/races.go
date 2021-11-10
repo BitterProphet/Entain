@@ -49,7 +49,11 @@ func (r *racesRepo) List(filter *racing.ListRacesRequestFilter) ([]*racing.Race,
 		args  []interface{}
 	)
 
+
+	/* commented out to change query
 	query = getRaceQueries()[racesList]
+	 */
+	query = getVisibleRaceQueries()[racesList]
 
 	query, args = r.applyFilter(query, filter)
 
